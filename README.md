@@ -28,7 +28,7 @@ Nosso aplicação permite marcar e gerenciar jogos de forma fácil
 ### Controle de versão
 
 * [Git](https://git-scm.com/)
-* [Bitbucket](https://bitbucket.org/)
+* [Github](https://github.com)
 
 ### Banco de Dados 
 
