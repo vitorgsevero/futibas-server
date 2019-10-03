@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 
 
 const MatchSchema = mongoose.Schema({
@@ -27,5 +28,7 @@ const MatchSchema = mongoose.Schema({
         default: Date.now,
     }
 });
+
+MatchSchema.plugin(mongoosePaginate);
 
 mongoose.model('Match', MatchSchema);
