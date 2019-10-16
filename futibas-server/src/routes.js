@@ -3,6 +3,7 @@ const routes = express.Router();
 
 const MatchController = require('./controllers/MatchController');
 const PlayerController = require('./controllers/PlayerController');
+const TeamController = require('./controllers/TeamController');
 
 
 //Match Routes
@@ -21,5 +22,9 @@ routes.delete('/player/:id', PlayerController.deleteOne);
 routes.put('/player/:id', PlayerController.updateOne);
 
 //Team Routes
+routes.get('/team', TeamController.getTeam);
+routes.post('/team', TeamController.create);
+routes.delete('/team/:id', TeamController.deleteOne);
+routes.put('/team/:id', TeamController.updateOne);
 
 module.exports = routes;
