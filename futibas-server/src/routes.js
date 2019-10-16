@@ -20,4 +20,6 @@ routes.post('/player', PlayerController.create);
 routes.delete('/player/:id', PlayerController.deleteOne);
 routes.put('/player/:id', PlayerController.updateOne);
 
+//Team Routes
+
 module.exports = routes;
