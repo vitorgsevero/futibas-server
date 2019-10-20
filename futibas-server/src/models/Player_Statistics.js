@@ -3,7 +3,7 @@ const mongoosePaginate = require('mongoose-paginate');
 
 const Player_Statistics_Schema = mongoose.Schema({
     player: {
-        type: Schema.Types.ObjectId, ref: 'Player'
+        type: mongoose.Schema.Types.ObjectId, ref: 'Player'
     }, //References Player Model
     player_goals: {
         type: Number,

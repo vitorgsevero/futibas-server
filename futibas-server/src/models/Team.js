@@ -4,7 +4,7 @@ const mongoosePaginate = require('mongoose-paginate');
 
 const TeamSchema = mongoose.Schema({
     player: {
-        type: Schema.Types.ObjectId, ref: 'Player'
+        type: mongoose.Schema.Types.ObjectId, ref: 'Player'
     }, //References Player Model
     team_name: {
         type: String,

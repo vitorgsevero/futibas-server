@@ -37,6 +37,5 @@ module.exports = {
             let errorMsg = " does not exist!";
             res.status(404).json(req.params.id + errorMsg);
         }
-    },
-    async 
+    }, 
 }

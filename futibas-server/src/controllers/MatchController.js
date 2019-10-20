@@ -19,7 +19,6 @@ module.exports = {
             res.status(404).json(req.params.id + errorMsg);
             next();
         }
-
     },
     async create(req, res) {
         try {
