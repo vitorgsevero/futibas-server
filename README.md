@@ -22,8 +22,9 @@ Nosso aplicação permite marcar e gerenciar jogos de forma fácil
 ### Back-End
 
 * [Node.js](https://nodejs.org/en/)
-* [Express](https://expressjs.com/pt-br/)
+* [ExpressJS](https://expressjs.com/pt-br/)
 * [Mongoose](https://mongoosejs.com/)
+* [Log Stream] Logger
 
 ### Controle de versão
 
