@@ -21,13 +21,16 @@ module.exports = {
         }
     },
     async create(req, res) {
-        try {
-            const match = await Match.create(req.body);
-            return res.json(match);
-        } catch (error) {
-            let errorMsg = " was not created!";
-            res.status(404).json(req.params.id + errorMsg);
-        }
+        // try {
+        //     const match = await Match.create(req.body);
+        //     return res.json(match);
+        // } catch (error) {
+        //     let errorMsg = " was not created!";
+        //     res.status(404).json(req.params.id + errorMsg);
+        // }
+
+        
+        
     },
     async deleteOne(req, res) {
         try {
