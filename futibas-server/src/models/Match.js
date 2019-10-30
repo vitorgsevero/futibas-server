@@ -3,10 +3,10 @@ const mongoosePaginate = require('mongoose-paginate');
 
 
 const MatchSchema = mongoose.Schema({
-    player: [{
-        type: Schema.Types.ObjectId, ref: 'Player',
-        require: true
-    }], //References Player Model
+    // player: [{
+    //     type: Schema.Types.ObjectId, ref: 'Player',
+    //     require: true
+    // }], //References Player Model
     match_name: {
         type: String,
         required: true
