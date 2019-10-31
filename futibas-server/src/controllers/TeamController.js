@@ -12,6 +12,8 @@ module.exports = {
     },
     async create(req, res) {
         try {
+            const idmatch = req.body.match;
+            console.log(idmatch)
             const team = await Team.create(req.body);
             return res.json(team);
         } catch (error) {

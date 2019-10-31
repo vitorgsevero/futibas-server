@@ -6,6 +6,9 @@ const TeamSchema = mongoose.Schema({
     player: {
         type: mongoose.Schema.Types.ObjectId, ref: 'Player'
     }, //References Player Model
+    match: {
+        type: mongoose.Schema.Types.ObjectId, ref: 'Match'
+    }, //References Match Model
     team_name: {
         type: String,
         required: true

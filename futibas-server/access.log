@@ -14,3 +14,8 @@
 ::1 - - [03/Oct/2019:23:41:49 +0000] "GET /api/player/ HTTP/1.1" 200 421 "-" "PostmanRuntime/7.17.1"
 ::1 - - [03/Oct/2019:23:44:13 +0000] "GET /api/player HTTP/1.1" 200 421 "-" "PostmanRuntime/7.17.1"
 ::1 - - [03/Oct/2019:23:45:12 +0000] "GET /api/player HTTP/1.1" 200 600 "-" "PostmanRuntime/7.17.1"
+::1 - - [30/Oct/2019:23:14:54 +0000] "GET /api/match HTTP/1.1" 200 51 "-" "PostmanRuntime/7.19.0"
+::1 - - [30/Oct/2019:23:40:30 +0000] "GET /api/team HTTP/1.1" 200 51 "-" "PostmanRuntime/7.19.0"
+::1 - - [30/Oct/2019:23:42:10 +0000] "GET /api/player HTTP/1.1" 200 231 "-" "PostmanRuntime/7.19.0"
+::1 - - [30/Oct/2019:23:42:30 +0000] "GET /api/match HTTP/1.1" 200 271 "-" "PostmanRuntime/7.19.0"
+::1 - - [31/Oct/2019:00:21:58 +0000] "GET /api/team HTTP/1.1" 200 324 "-" "PostmanRuntime/7.19.0"

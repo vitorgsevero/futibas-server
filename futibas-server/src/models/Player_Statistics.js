@@ -13,7 +13,7 @@ const Player_Statistics_Schema = mongoose.Schema({
         type: Number,
         required: true
     },
-    player_goals: {
+    player_mvp: {
         type: Number,
         required: true
     },
