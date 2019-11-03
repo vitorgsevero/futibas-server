@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const Team = mongoose.model('Team');
+const Player = mongoose.model('Player');
 
 
 module.exports = {
@@ -12,11 +13,21 @@ module.exports = {
     },
     async create(req, res) {
         try {
-            const idmatch = req.body.match;
-            console.log(idmatch)
-            const team = await Team.create(req.body);
-            return res.json(team);
-        } catch (error) {
+            Player.findById(req.body.productId)
+                .then(player => {
+                    if (!player) {
+                        return res.status(404).json({
+                            message: "Player not found"
+                        });
+                    }
+                    const team = new Team({
+                        _id: mongoose.Types.ObjectId(),
+                        team_name: req.body.team_name
+                    });
+                    return team.save();
+                })
+
+        } catch{
             console.log(error);
             let errorMsg = " was not created!";
             res.status(404).json(req.params.id + errorMsg);
@@ -39,5 +50,5 @@ module.exports = {
             let errorMsg = " does not exist!";
             res.status(404).json(req.params.id + errorMsg);
         }
-    }, 
+    },
 }
