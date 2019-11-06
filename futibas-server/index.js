@@ -1,12 +1,14 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
-
 const fs = require('fs');
 const path = require('path');
-var logger = require('morgan');
+const logger = require('morgan');
+const cors = require('./src/middlewares/cors');
+const config = require('./config');
 
+app.use(cors);
 app.use(express.json());
 
 requireDir('./src/models');
@@ -30,7 +32,6 @@ var loggedAt = function (req, res, next) {
 
 app.use(loggedAt);
 
-//Listening on 3000
-app.listen(3000, function () {
-  console.log('Futibas Server listening on port 3000!');
+app.listen(config.port, () => {
+  console.log(`Futibas Server listening on port ${config.port}!`);
 });
