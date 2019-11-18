@@ -26,7 +26,6 @@ module.exports = {
                     });
                     return team.save();
                 })
-
         } catch{
             console.log(error);
             let errorMsg = " was not created!";
