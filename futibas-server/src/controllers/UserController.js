@@ -1,74 +1,65 @@
-const User = require('../models/User');
+const express = require('express');
+const router = express.Router();
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const config = require('config');
 const { check, validationResult } = require('express-validator');
 
-module.exports = {
-  async postAuth(req, res) {
-    [
-      check('name', 'Name is required')
-        .not()
-        .isEmpty(),
-      check('email', 'Please insert a valid email').isEmail(),
-      check(
-        'password',
-        'Please enter a password with 6 or more characters'
-      ).isLength({ min: 6 })
-    ],
-      async (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-          return res.status(400).json({ errors: errors.array() });
-        }
+const User = require('../../models/User');
 
-        const { name, email, password } = req.body;
+// @route   POST api/users
+// @desc    Register user
+// @access  Public
+router.post(
+  '/',
+  [
+    check('name', 'Name is required')
+      .not()
+      .isEmpty(),
+    check('email', 'Please insert a valid email').isEmail(),
+    check(
+      'password',
+      'Please enter a password with 6 or more characters'
+    ).isLength({ min: 6 })
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
 
-        try {
-          // See if user exists
-          let user = await User.findOne({ email });
+    const { name, email, password } = req.body;
 
-          if (user) {
-            return res
-              .status(400)
-              .json({ errors: [{ msg: 'User already exists' }] });
-          }
+    try {
+      // See if user exists
+      let user = await User.findOne({ email });
 
-          user = new User({
-            name,
-            email,
-            password
-          });
+      if (user) {
+        return res
+          .status(400)
+          .json({ errors: [{ msg: 'User already exists' }] });
+      }
 
-          const salt = await bcrypt.genSalt(10);
+      user = new User({
+        name,
+        email,
+        avatar,
+        password
+      });
 
-          // Encrypt password
-          user.password = await bcrypt.hash(password, salt);
+      const salt = await bcrypt.genSalt(10);
 
-          await user.save();
+      // Encrypt password
+      user.password = await bcrypt.hash(password, salt);
 
-          // Return JWT
-          const payload = {
-            user: {
-              id: user.id
-            }
-          };
+      await user.save();
 
-          jwt.sign(
-            payload,
-            config.get('jwtSecret'),
-            {
-              expiresIn: 360000
-            },
-            (err, token) => {
-              if (err) throw err;
-              res.json({ token });
-            }
-          );
-        } catch (error) {
-          console.error(err.message);
-          res.status(500).send('Server error');
-        }
-      };
+      // Return JWT
+
+      res.send('User registered');
+    } catch (error) {
+      console.error(err.message);
+      res.status(500).send('Server error');
+    }
   }
-};
+);
+
+module.exports = router;
