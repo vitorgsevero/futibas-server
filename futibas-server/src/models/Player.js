@@ -9,39 +9,29 @@ const PlayerSchema = new mongoose.Schema({
     type: String
   },
   age: {
-    type: String
+    type: Number
   },
   position: {
     type: String
   },
   status: {
-    type: String,
+    type: Boolean,
+    default: false
+  },
+  skills: {
+    type: [String],
     required: true
   },
-  skills: [
-    {
-      skill1: {
-        type: String,
-        required: true
-      },
-      skill1: {
-        type: String,
-        required: true
-      },
-      skill1: {
-        type: String
-      }
-    }
-  ],
   statistics: [
     {
-      gols: {
-        type: String,
-        required: true
+      goals: {
+        type: String
       },
-      assistencias: {
-        type: String,
-        required: true
+      assists: {
+        type: String
+      },
+      matches: {
+        type: String
       },
       rating: {
         type: String
