@@ -1,26 +1,57 @@
 const mongoose = require('mongoose');
-const mongoosePaginate = require('mongoose-paginate');
 
-
-const PlayerSchema = mongoose.Schema({
-    player_name: {
+const PlayerSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user'
+  },
+  name: {
+    type: String
+  },
+  age: {
+    type: String
+  },
+  position: {
+    type: String
+  },
+  status: {
+    type: String,
+    required: true
+  },
+  skills: [
+    {
+      skill1: {
         type: String,
         required: true
-    },
-    player_age: {
-        type: Date,
-        required: true
-    },
-    player_position: {
+      },
+      skill1: {
         type: String,
         required: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
+      },
+      skill1: {
+        type: String
+      }
     }
+  ],
+  statistics: [
+    {
+      gols: {
+        type: String,
+        required: true
+      },
+      assistencias: {
+        type: String,
+        required: true
+      },
+      rating: {
+        type: String
+      }
+    }
+  ],
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
-PlayerSchema.plugin(mongoosePaginate);
-
-mongoose.model('Player', PlayerSchema);
+module.exports = Player = mongoose.model('player', PlayerSchema);

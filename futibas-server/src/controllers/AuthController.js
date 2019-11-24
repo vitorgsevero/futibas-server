@@ -1,6 +1,6 @@
 const Player = require('../models/Player');
 const User = require('../models/User');
-const auth = require('../middlewares/auth');
+const auth = require('../middleware/auth');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
