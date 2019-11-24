@@ -25,16 +25,20 @@ const PlayerSchema = new mongoose.Schema({
   statistics: [
     {
       goals: {
-        type: String
+        type: Number,
+        default: 0
       },
       assists: {
-        type: String
+        type: Number,
+        default: 0
       },
       matches: {
-        type: String
+        type: Number,
+        default: 0
       },
       rating: {
-        type: String
+        type: Number,
+        default: 5
       }
     }
   ],
