@@ -63,12 +63,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"match_name\": \"COLEGAS DO SENAC\",\n    \"match_date\": \"2019-10-24\",\n    \"match_type\": \"SINTETICO\",\n    \"match_place\": \"PLANET BALL\",\n    \"match_schema\": \"442\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": "{\n\t\"match_name\": \"COLEGAS DO SENAC\",\n    \"match_date\": \"2019-10-24\",\n    \"match_type\": \"SINTETICO\",\n    \"match_place\": \"PLANET BALL\",\n    \"match_schema\": \"442\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/match",
@@ -120,12 +115,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"match_name\": \"COLEGAS DO SENAC\",\n    \"match_date\": \"2019-10-24\",\n    \"match_type\": \"SINTETICO\",\n    \"match_place\": \"PLANET BALL\",\n    \"match_schema\": \"442\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": "{\n\t\"match_name\": \"COLEGAS DO SENAC\",\n    \"match_date\": \"2019-10-24\",\n    \"match_type\": \"SINTETICO\",\n    \"match_place\": \"PLANET BALL\",\n    \"match_schema\": \"442\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/match/5d9535a6be032d13e8326c4d",
@@ -176,7 +166,13 @@
 					"name": "GET - All Players",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWRkYWQ1ZmExOGYxMWQzMWYwMGFjNDk0In0sImlhdCI6MTU3NDYzMDkzOSwiZXhwIjoxNTc0OTkwOTM5fQ.7HjmV9hbb7_v277cNxKpQ4Yp-FC3vcev29TlnhqS_VY",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:3000/api/player",
 							"protocol": "http",
@@ -227,12 +223,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"player_name\": \"Kevin Machado\",\n\t\"player_age\": \"1998-05-31\",\n\t\"player_position\": \"Zagueiro\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": "{\n\t\"player_name\": \"Kevin Machado\",\n\t\"player_age\": \"1998-05-31\",\n\t\"player_position\": \"Zagueiro\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/player",
@@ -284,12 +275,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"player_name\": \"Kevin Machado\",\n\t\"player_age\": \"1998-05-31\",\n\t\"player_position\": \"Atacante\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": "{\n\t\"player_name\": \"Kevin Machado\",\n\t\"player_age\": \"1998-05-31\",\n\t\"player_position\": \"Atacante\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/player/5db0dc3869b3df08ece4ed2e",
@@ -312,7 +298,95 @@
 		},
 		{
 			"name": "Team",
-			"item": [],
+			"item": [
+				{
+					"name": "GET - All Teams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/team",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"team"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "POST - Register a User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Vítor Severo6\",\n\t\"email\": \"vitorgsevero6@gmail.com\",\n\t\"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST - User Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"sandrosevero@gmail.com\",\n    \"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"protocolProfileBehavior": {}
 		}
 	],
