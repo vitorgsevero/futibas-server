@@ -9,13 +9,13 @@ const Player = require('../../models/Player');
 const User = require('../../models/User');
 
 // @route   GET api/player
-// @desc    Get current users profile
+// @desc    Get current players profile
 // @access  Private
 router.get('/', auth, async (req, res) => {
   try {
     const player = await Player.findOne({
       user: req.user.id
-    }).populate('user', ['name']);
+    }).populate('user', ['name', 'email']);
 
     if (!player) {
       return res.status(400).json({ msg: 'There is no player for this user' });
@@ -82,6 +82,8 @@ router.post(
     if (assists) playerFields.statistics.assists = assists;
     if (matches) playerFields.statistics.matches = matches;
     if (rating) playerFields.statistics.rating = rating;
+
+    console.log(playerFields.statistics)
 
     try {
       let player = await Player.findOne({ user: req.user.id });
