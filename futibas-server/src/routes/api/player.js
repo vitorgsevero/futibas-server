@@ -17,6 +17,8 @@ router.get('/', auth, async (req, res) => {
       user: req.user.id
     }).populate('user', ['name', 'email']);
 
+    console.log(player);
+
     if (!player) {
       return res.status(400).json({ msg: 'There is no player for this user' });
     }
@@ -26,6 +28,29 @@ router.get('/', auth, async (req, res) => {
     res.status(500).send('Server error');
   }
 });
+
+
+// @route   GET api/all
+// @desc    Get all players profile
+// @access  Private
+router.get('/all', async (req, res) => {
+  try {
+    const player = await Player.find();
+
+    console.log(player);
+
+    if (!player) {
+      return res.status(400).json({ msg: 'There is no players' });
+    }
+    res.json(player);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+});
+
+
+
 
 // @route   POST api/player
 // @desc    Create or update player profile
