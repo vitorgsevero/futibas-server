@@ -33,7 +33,7 @@ router.get('/', auth, async (req, res) => {
 // @route   GET api/all
 // @desc    Get all players profile
 // @access  Private
-router.get('/all', async (req, res) => {
+router.get('/all', auth, async (req, res) => {
   try {
     const player = await Player.find();
 
