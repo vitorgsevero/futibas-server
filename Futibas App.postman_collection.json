@@ -12,9 +12,15 @@
 					"name": "GET - All Matches",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWRkYWQ1ZmExOGYxMWQzMWYwMGFjNDk0In0sImlhdCI6MTU3NTkzNjU1MSwiZXhwIjoxNTc2Mjk2NTUxfQ.0gIxtA4mbczgGt8R6QBTYaM-Wah9LMKoRjAT3GMimHY",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:3000/api/match",
+							"raw": "http://localhost:3000/api/match/all",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -22,7 +28,8 @@
 							"port": "3000",
 							"path": [
 								"api",
-								"match"
+								"match",
+								"all"
 							]
 						}
 					},
@@ -59,11 +66,16 @@
 								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWRkYWQ1ZmExOGYxMWQzMWYwMGFjNDk0In0sImlhdCI6MTU3NTkzNjU1MSwiZXhwIjoxNTc2Mjk2NTUxfQ.0gIxtA4mbczgGt8R6QBTYaM-Wah9LMKoRjAT3GMimHY",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"match_name\": \"COLEGAS DO SENAC\",\n    \"match_date\": \"2019-10-24\",\n    \"match_type\": \"SINTETICO\",\n    \"match_place\": \"PLANET BALL\",\n    \"match_schema\": \"442\"\n}"
+							"raw": "{\n\t\"match_name\": \"COLEGAS DA NEOGRID\",\n    \"match_date\": \"2019-10-24\",\n    \"match_type\": \"FUTSAL\",\n    \"match_place\": \"PLANETA BOLAL\",\n    \"match_schema\": \"442\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/match",
@@ -84,9 +96,19 @@
 					"name": "DELETE - Deleting a Match by ID",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWRkYWQ1ZmExOGYxMWQzMWYwMGFjNDk0In0sImlhdCI6MTU3NTkzNjU1MSwiZXhwIjoxNTc2Mjk2NTUxfQ.0gIxtA4mbczgGt8R6QBTYaM-Wah9LMKoRjAT3GMimHY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "http://localhost:3000/api/match/5d953590be032d13e8326c48",
+							"raw": "http://localhost:3000/api/match/5deee789b3b8f20d646d73ac",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -95,7 +117,7 @@
 							"path": [
 								"api",
 								"match",
-								"5d953590be032d13e8326c48"
+								"5deee789b3b8f20d646d73ac"
 							]
 						}
 					},
@@ -164,17 +186,24 @@
 			"item": [
 				{
 					"name": "GET - All Players",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "x-auth-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWRkYWQ1ZmExOGYxMWQzMWYwMGFjNDk0In0sImlhdCI6MTU3NDYzMDkzOSwiZXhwIjoxNTc0OTkwOTM5fQ.7HjmV9hbb7_v277cNxKpQ4Yp-FC3vcev29TlnhqS_VY",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWRkYWQ1ZmExOGYxMWQzMWYwMGFjNDk0In0sImlhdCI6MTU3NTkyODUzMCwiZXhwIjoxNTc2Mjg4NTMwfQ.RVd0JmDsoVido7NDEqO09Nja0Y3YkACguW0ZbxMIz8A",
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "http://localhost:3000/api/player",
+							"raw": "http://localhost:3000/api/player/all",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -182,7 +211,8 @@
 							"port": "3000",
 							"path": [
 								"api",
-								"player"
+								"player",
+								"all"
 							]
 						}
 					},
@@ -219,11 +249,16 @@
 								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWRkYWQ2NDIxOGYxMWQzMWYwMGFjNDk1In0sImlhdCI6MTU3NTkzMTYwMiwiZXhwIjoxNTc2MjkxNjAyfQ.NWgf15nL5oWISVVHTViZVdjB87F584Jal7jFf_BsBko",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"player_name\": \"Kevin Machado\",\n\t\"player_age\": \"1998-05-31\",\n\t\"player_position\": \"Zagueiro\"\n}"
+							"raw": "{\n\t\"name\": \"Pedro Ramos\",\n\t\"age\": 34,\n\t\"position\": \"GOL\",\n\t\"status\": true,\n\t\"skills\": \"shoot, dribbling, defense\",\n\t\"statistics\": [\n        {\n            \"goals\": 5,\n            \"assists\": 4,\n            \"matches\": 4,\n            \"rating\": 5\n        }\n    ]\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/player",
@@ -339,7 +374,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Vítor Severo6\",\n\t\"email\": \"vitorgsevero6@gmail.com\",\n\t\"password\": \"123456\"\n}"
+							"raw": "{\n\t\"name\": \"Vítor Severo6\",\n\t\"email\": \"vitorgsevero6@gmail.com\",\n\t\"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/users",
