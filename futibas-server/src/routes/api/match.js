@@ -4,6 +4,9 @@ const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 const Match = require('../../models/Match');
 
+// @route   GET api/match
+// @desc    Get current match logged
+// @access  Private
 router.get('/', auth, async (req, res) => {
   try {
     const match = await Match.findOne({
@@ -20,6 +23,9 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
+// @route   GET api/match/all
+// @desc    Get all matches
+// @access  Private
 router.get('/all', auth, async (req, res) => {
   try {
     const match = await Match.find().populate('user');
@@ -34,6 +40,9 @@ router.get('/all', auth, async (req, res) => {
   }
 });
 
+// @route   PSOT api/match
+// @desc    Create or Update a new match
+// @access  Private
 router.post(
   '/',
   [
@@ -96,5 +105,24 @@ router.post(
     }
   }
 );
+
+// @route   DELETE api/match
+// @desc    Delete match
+// @access  Private
+router.delete('/:match_id', auth, async (req, res) => {
+  try {
+    // Remove Match
+    const match = await Match.findOneAndRemove({ match: req.params.id });
+
+    if (!match) {
+      return res.status(400).json({ msg: 'Match not found' });
+    }
+
+    res.json(match);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 module.exports = router;
