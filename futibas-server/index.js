@@ -21,13 +21,13 @@ mongoose.connect('mongodb://localhost:27017/futibas', {
 });
 
 //Routes
-// app.use('/api', require('./src/routes')); //antes da refatoração
 app.use('/api/users', require('./src/routes/api/users'));
 app.use('/api/player', require('./src/routes/api/player'));
-
 app.use('/api/auth', require('./src/routes/api/auth'));
-app.use('/api/teams', require('./src/routes/api/auth'));
-app.use('/api/matches', require('./src/routes/api/auth'));
+
+// app.use('/api/team', require('./src/routes/api/team'));
+
+app.use('/api/match', require('./src/routes/api/match'));
 
 //Log File
 var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {
